@@ -100,8 +100,7 @@ where
     W: io::Write,
 {
     new_with_ts_fn(name, io, |_: &Record| {
-        time::OffsetDateTime::now_local()
-            .unwrap_or_else(|_| time::OffsetDateTime::now_utc())
+        time::OffsetDateTime::now_utc()
             .format(&time::format_description::well_known::Rfc3339)
             .ok()
     })
